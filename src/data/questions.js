@@ -91,7 +91,28 @@ const questions = {
             }
         ],
         topicId: 'ef0883b8-14f7-47c1-8471-536c032d6716'
-    }
+    },
+    'ce959be0-0838-483c-ad35-37d8f34b0971': {
+        name: 'Egészítsedkifelebüdöskölyke!!!!',
+        type: 2,
+        answers: [
+            {
+                name: 'Mit ittál | aaaaaaaas asdasdsaasda asdasdad?',
+                valid: [
+                    'Gyulus',
+                    'Gyuluska'
+                ]
+            },
+            {
+                name: 'Hol a | főnök?',
+                valid: [
+                    'fa',
+                    'bokor'
+                ]
+            },
+        ],
+        topicId: 'ef0883b8-14f7-47c1-8471-536c032d6716'
+    },
 };
 
 const getQuestionIdsByTopicId = topicId =>

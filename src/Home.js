@@ -4,7 +4,9 @@ import Topics from './Topics';
 class Home extends Component {
     constructor(props) {
         super(props);
-        this.myRef = React.createRef();
+        this.tasksRef = React.createRef();
+        this.forusRef = React.createRef();
+        this.referencesRef = React.createRef();
         this.homeRef = React.createRef();
         this.scrollToMyRef = this.scrollToMyRef.bind(this);
         this.handleScrollDirection = this.handleScrollDirection.bind(this);
@@ -12,13 +14,17 @@ class Home extends Component {
         this.listenToScroll = this.listenToScroll.bind(this);
         this.move = this.move.bind(this);
         this.state = {
-            scrollDirection: false
+            scrollDirection: false,
+            loaded: false
         }
     }
 
     componentDidMount() {
         window.addEventListener('scroll', this.listenToScroll);
         this.move(this.props.scrollLinkClicked);
+        this.setState({
+            loaded: true
+        });
     }
 
     componentWillUnmount() {
@@ -33,20 +39,34 @@ class Home extends Component {
     }
 
     move(direct) {
-        if (direct) {
-            this.scrollToMyRef(this.myRef);
-            this.changeScrollDirection(true);
-        }
-        else {
-            this.scrollToMyRef(this.homeRef);
-            this.changeScrollDirection(false);
+        switch (direct) {
+            case 'home':
+                this.scrollToMyRef(this.homeRef);
+                this.changeScrollDirection(false);
+                break;
+            case 'forus':
+                this.scrollToMyRef(this.forusRef);
+                this.changeScrollDirection(true);
+                break;
+            case 'references':
+                this.scrollToMyRef(this.referencesRef);
+                this.changeScrollDirection(true);
+                break;
+            case 'tasks':
+                this.scrollToMyRef(this.tasksRef);
+                this.changeScrollDirection(true);
+                break;
+            default:
+                this.scrollToMyRef(this.homeRef);
+                this.changeScrollDirection(false);
+                break;
         }
     }
 
     handleScrollDirection() {
         const currentDirection = !this.state.scrollDirection;
         if (currentDirection) {
-            this.scrollToMyRef(this.myRef);
+            this.scrollToMyRef(this.tasksRef);
         }
         else {
             this.scrollToMyRef(this.homeRef);
@@ -69,32 +89,35 @@ class Home extends Component {
 
         const scrolled = winScroll / height;
 
-        const home = winScroll / this.myRef.current.offsetHeight;
+        const home = winScroll / this.tasksRef.current.offsetHeight;
 
         this.setState({
             scrollDirection: home > scrolled
         });
+    }
 
+    setHomeLoadingClass(loaded) {
+        return loaded ? ' home-loaded' : ' home-not-loaded';
     }
 
     render() {
         return (
             <React.Fragment>
                 <section className='section-home' ref={this.homeRef}>
-                    <div className='container text-center'>
+                    <div className={'container text-center' + this.setHomeLoadingClass(this.state.loaded)}>
                         <img src={require('./images/gorgey.png')} alt="Görgey Artúr" />
-                        <h1 className="heading">Welcome to my portfolio</h1>
+                        <h1 className="heading">Üdvözöllek a Görgey Artúr Akadémián!</h1>
                         <div className="subheading">This is some text inside of a div block.</div>
                     </div>
                     <div id="mybutton" onClick={this.handleScrollDirection}>
                         <span className={'scroll-button' + (this.state.scrollDirection ? ' up' : ' down')}></span>
                     </div>
                 </section>
-                <section className='section-white-left'>
+                <section className='section-white-left' ref={this.forusRef}>
                     <div className='container'>
                         <div className='row'>
                             <div class='offset-md-1 col-md-5'>
-                                <h2 className="section-heading">Section Heading</h2>
+                                <h2 className="section-heading">Kik is vagyunk?</h2>
                                 <div className="section-subheading">Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec ullamcorper nulla non metus auctor fringilla.</div>
                             </div>
                             <div className='col-md-5 text-center'>
@@ -103,23 +126,23 @@ class Home extends Component {
                         </div>
                     </div>
                 </section>
-                <section className='section-grey-right'>
+                <section className='section-grey-right' ref={this.referencesRef}>
                     <div className='container'>
                         <div className='row'>
                             <div className='offset-md-1 col-md-5 text-center'>
                                 <img className='section-image' src={require('./images/bridge.jpeg')} alt="" />
                             </div>
                             <div className='col-md-5'>
-                                <h2 className="section-heading">Section Heading</h2>
+                                <h2 className="section-heading">Referenciák</h2>
                                 <div className="section-subheading">Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec ullamcorper nulla non metus auctor fringilla.</div>
                             </div>
                         </div>
                     </div>
                 </section>
-                <section className="text-center" ref={this.myRef}>
+                <section className="text-center" ref={this.tasksRef}>
                     <div className="container">
                         <div className="section-title-group">
-                            <h2 className="centered section-heading">Lightbox Section</h2>
+                            <h2 className="centered section-heading">Gyakorlófeladatok a középszintű történelem érettségire</h2>
                             <div className="center section-subheading">This is some text inside of a div block.</div>
                         </div>
                         <Topics />

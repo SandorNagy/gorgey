@@ -8,29 +8,22 @@ class App extends Component {
     super(props);
 
     this.handleScrollLinkClick = this.handleScrollLinkClick.bind(this);
-    this.handleScrollLinkClickHome = this.handleScrollLinkClickHome.bind(this);
 
     this.state = {
-      scrollLinkClicked: false
+      scrollLinkClicked: 'home'
     };
   }
 
-  handleScrollLinkClick() {
+  handleScrollLinkClick(target) {
     this.setState({
-      scrollLinkClicked: true
-    });
-  }
-
-  handleScrollLinkClickHome() {
-    this.setState({
-      scrollLinkClicked: false
+      scrollLinkClicked: target
     });
   }
 
   render() {
     return (
       <React.Fragment>
-        <Header handleScrollLinkClick={this.handleScrollLinkClick} handleScrollLinkClickHome={this.handleScrollLinkClickHome} />
+        <Header handleScrollLinkClick={this.handleScrollLinkClick} />
         <Main scrollLinkClicked={this.state.scrollLinkClicked} />
       </React.Fragment>
     );
