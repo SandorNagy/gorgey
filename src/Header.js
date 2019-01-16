@@ -34,13 +34,23 @@ class Header extends Component {
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
                             <NavItem>
-                                <Link className='menu-link nav-link' onClick={this.props.handleScrollLinkClickHome} to='/'>
+                                <Link className='menu-link nav-link' onClick={() => this.props.handleScrollLinkClick('home')} to='/'>
                                     Kezdőlap
                                 </Link>
                             </NavItem>
                             <NavItem>
-                                <Link className='menu-link nav-link scroll-link' onClick={this.props.handleScrollLinkClick} to='/'>
-                                    Lightbox Section
+                                <Link className='menu-link nav-link scroll-link' onClick={() => this.props.handleScrollLinkClick('forus')} to='/'>
+                                    Rólunk
+                                </Link>
+                            </NavItem>
+                            <NavItem>
+                                <Link className='menu-link nav-link scroll-link' onClick={() => this.props.handleScrollLinkClick('references')} to='/'>
+                                    Referenciák
+                                </Link>
+                            </NavItem>
+                            <NavItem>
+                                <Link className='menu-link nav-link scroll-link' onClick={() => this.props.handleScrollLinkClick('tasks')} to='/'>
+                                    Feladatok
                                 </Link>
                             </NavItem>
                         </Nav>
