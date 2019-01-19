@@ -179,7 +179,8 @@ header {
 
 .available-tab {
   color: #000 !important;
-  font-weight: 700;
+  font-weight: 500;
+  border-color: #dee2e6 !important;
 }
 
 .scroll-link {
@@ -274,4 +275,21 @@ header {
   -webkit-transform: translate(0px, 50px);
   -ms-transform: translate(0px, 50px);
   transform: translate(0px, 50px);
+}
+
+a.active {
+  background-color: #ffc107 !important;
+}
+
+.nav-tabs .nav-link {
+  border: 1px solid #FCF2DC !important;
+}
+
+.nav-tabs {
+  border-bottom: 1px solid #FCF2DC !important;
+}
+
+.summary-progress {
+  margin-right: 30px;
+  margin-bottom: 10px;
 }

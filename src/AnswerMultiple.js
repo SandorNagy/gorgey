@@ -19,9 +19,26 @@ class AnswerMultiple extends Component {
     handleOnClick() {
         if (!this.props.validated) {
             const currentMarked = this.state.marked;
+            this.setAnswerStat(!currentMarked, this.props.answer);
             this.setState({
                 marked: !currentMarked
             });
+        }
+    }
+
+    setAnswerStat(marked, answer)
+    {
+        if(marked) {
+            this.props.handleAnswerStat(
+                answer.valid ? 1 : 0,
+                answer.valid ? 0 : 1
+            )
+        }
+        else {
+            this.props.handleAnswerStat(
+                answer.valid ? -1 : 0,
+                answer.valid ? 0 : -1
+            )
         }
     }
 

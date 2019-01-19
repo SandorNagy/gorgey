@@ -97,7 +97,7 @@ const questions = {
         type: 2,
         answers: [
             {
-                name: 'Mit ittál | aaaaaaaas asdasdsaasda asdasdad?',
+                name: 'Mit ittál | ?',
                 valid: [
                     'Gyulus',
                     'Gyuluska'

@@ -26,9 +26,21 @@ class AnswerMultiple extends Component {
     }
 
     answerInputOnChange(event) {
+        this.setAnswerStat(event.target.value, this.state.value, this.props.answer);
         this.setState({
             value: event.target.value
         });
+    }
+
+    setAnswerStat(newValue, oldValue, answer) {
+        if (!answer.valid.indexOf(oldValue) > -1 && answer.valid.indexOf(newValue) > -1) {
+            this.props.handleAnswerStat(1, -1);
+        }
+        else if(answer.valid.indexOf(oldValue) > -1 && !answer.valid.indexOf(newValue) > -1) {
+            this.props.handleAnswerStat(-1, 1);
+        } else if(this.state.value === '' && !answer.valid.indexOf(newValue) > -1) {
+            this.props.handleAnswerStat(0, 1);
+        }
     }
 
     setInput(answer, validated) {
