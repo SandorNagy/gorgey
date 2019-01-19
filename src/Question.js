@@ -48,11 +48,11 @@ class Question extends Component {
     questionTypeSelector(question, answer, index, validated) {
         switch (question.type) {
             case 0:
-                return (<AnswerMultiple question={question} answer={answer} index={index} validated={validated} />);
+                return (<AnswerMultiple question={question} answer={answer} index={index} validated={validated} handleAnswerStat={this.props.handleAnswerStat} />);
             case 1:
-                return (<AnswerTrueOrFalse question={question} answer={answer} validated={validated} />);
+                return (<AnswerTrueOrFalse question={question} answer={answer} validated={validated} handleAnswerStat={this.props.handleAnswerStat} />);
             case 2:
-                return (<AnswerComplete question={question} answer={answer} index={index} validated={validated} />);
+                return (<AnswerComplete question={question} answer={answer} index={index} validated={validated} handleAnswerStat={this.props.handleAnswerStat} />);
             default:
                 return null;
         }

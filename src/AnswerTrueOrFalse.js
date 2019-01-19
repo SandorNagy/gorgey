@@ -16,6 +16,7 @@ class AnswerTrueOrFalse extends Component {
     handleOnClickTrue() {
         if (!this.props.validated) {
             const currentMarkedTrue = this.state.markedTrue;
+            this.setAnswerStatTrue(!currentMarkedTrue, this.props.answer);
             this.setState({
                 markedTrue: !currentMarkedTrue,
                 markedFalse: false
@@ -26,10 +27,43 @@ class AnswerTrueOrFalse extends Component {
     handleOnClickFalse() {
         if (!this.props.validated) {
             const currentMarkedFalse = this.state.markedFalse;
+            this.setAnswerStatFalse(!currentMarkedFalse, this.props.answer);
             this.setState({
                 markedFalse: !currentMarkedFalse,
                 markedTrue: false
             });
+        }
+    }
+
+    setAnswerStatTrue(marked, answer)
+    {
+        if(marked) {
+            this.props.handleAnswerStat(
+                answer.valid ? 1 : 0,
+                answer.valid ? 0 : 1
+            )
+        }
+        else {
+            this.props.handleAnswerStat(
+                answer.valid ? -1 : 0,
+                answer.valid ? 0 : -1
+            )
+        }
+    }
+
+    setAnswerStatFalse(marked, answer)
+    {
+        if(marked) {
+            this.props.handleAnswerStat(
+                !answer.valid ? 1 : 0,
+                !answer.valid ? 0 : 1
+            )
+        }
+        else {
+            this.props.handleAnswerStat(
+                !answer.valid ? -1 : 0,
+                !answer.valid ? 0 : -1
+            )
         }
     }
 
