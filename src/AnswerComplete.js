@@ -19,9 +19,7 @@ class AnswerMultiple extends Component {
 
     createMarkForAnswer(index) {
         return (
-            <div className='col-sx-2 v-center'>
-                <Button className='answer-button' color='secondary'>{this.createLabel(index)}</Button>
-            </div>
+            <Button className='answer-button' color='secondary'>{this.createLabel(index)}</Button>
         );
     }
 
@@ -66,13 +64,13 @@ class AnswerMultiple extends Component {
         const inputSetting = this.setInput(answer, validated);
         return (
             <div>
-                <label className='mr-1'>
+                <label className='mr-1 font-14'>
                     {splittedName[0]}
                 </label>
                 <div className='inline-block mr-1'>
                     <input {...inputSetting.disabled} type='text' className={inputSetting.class} value={inputSetting.value} onChange={this.answerInputOnChange} />
                 </div>
-                <label>
+                <label className='font-14'>
                     {splittedName[1]}
                 </label>
             </div>
@@ -82,8 +80,8 @@ class AnswerMultiple extends Component {
     render() {
         return (
             <div className='question-answer row'>
-                {this.createMarkForAnswer(this.props.index)}
-                <div className='col-sx-10 font-14 v-center pl-0'>
+                <div className='v-center'>
+                    {this.createMarkForAnswer(this.props.index)}
                     {this.createInputForAnswer(this.props.answer, this.props.validated)}
                 </div>
             </div>
