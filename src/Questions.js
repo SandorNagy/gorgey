@@ -96,48 +96,50 @@ class Questions extends Component {
         questions.push(
             <TabPane tabId={'-1'}>
                 <Row>
-                    <Col sm="12" className='question-content'>
-                        <div className='row mb-2'>
-                            <div className='col-sm-1'>
+                    <Col sm="12" className='question-content ml-4'>
+                        <div className='row mb-2 mt-3'>
+                            <div>
                                 <Button className='answer-button' color='warning'>A</Button>
                             </div>
-                            <div className='col-sm-11 font-14 v-center'>
+                            <div className='font-14 v-center'>
                                 Jelöletlen válaszlehetőség.
                             </div>
                         </div>
                         <div className='row mb-2'>
-                            <div className='col-sm-1'>
+                            <div>
                                 <Button className='answer-button' color='primary'>B</Button>
                             </div>
-                            <div className='col-sm-11 font-14 v-center'>
+                            <div className='font-14 v-center'>
                                 Megjelölt válaszlehetőség.
                             </div>
                         </div>
                         <div className='row mb-2'>
-                            <div className='col-sm-1'>
+                            <div>
                                 <Button className='answer-button' color='success'>C</Button>
                             </div>
-                            <div className='col-sm-11 font-14 v-center'>
+                            <div className='font-14 v-center'>
                                 Megjelölt helyes válasz.
                             </div>
                         </div>
                         <div className='row mb-2'>
-                            <div className='col-sm-1'>
+                            <div>
                                 <Button className='answer-button' color='danger'>D</Button>
                             </div>
-                            <div className='col-sm-11 font-14 v-center'>
+                            <div className='font-14 v-center'>
                                 Megjelölt helytelen válasz.
                             </div>
                         </div>
                         <div className='row mb-2'>
-                            <div className='col-sm-1'>
+                            <div>
                                 <Button className='answer-button' color='info'>E</Button>
                             </div>
-                            <div className='col-sm-11 font-14 v-center'>
+                            <div className='font-14 v-center'>
                                 Jelöletlen helyes válasz.
                             </div>
                         </div>
-                        <Button color="secondary" onClick={() => { this.changeToggle(0); }}>Tovább</Button>
+                        <div className='row mb-2 mt-3'>
+                            <Button color="secondary" onClick={() => { this.changeToggle(0); }}>Tovább</Button>
+                        </div>
                     </Col>
                 </Row>
             </TabPane>

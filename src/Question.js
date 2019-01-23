@@ -74,11 +74,11 @@ class Question extends Component {
     render() {
         return (
             <div key={this.props.questionId}>
-                <div className='row mb-2'>
-                    <div className='question-name col-md-10'>
+                <div className='row mb-2 v-center'>
+                    <div className='question-name col-sm-10'>
                         {this.props.question.name}
                     </div>
-                    <div className='countdown col-md-2'>
+                    <div className='countdown col-sm-2'>
                         {this.props.clockStart ?
                             <ReactCountdownClock seconds={60}
                                 color={this.state.countDownEnd ? '#dc3545' : '#0069d9'}
@@ -97,8 +97,8 @@ class Question extends Component {
                 </div>
                 {
                     this.state.validated ?
-                        <Button color="secondary" onClick={this.handleTabChange}>Tovább</Button> :
-                        <Button color="secondary" onClick={this.handleValidation}>Ellenőrzés</Button>
+                        <Button color="secondary mt-3" onClick={this.handleTabChange}>Tovább</Button> :
+                        <Button color="secondary mt-3" onClick={this.handleValidation}>Ellenőrzés</Button>
                 }
             </div>
         );

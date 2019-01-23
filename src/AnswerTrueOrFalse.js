@@ -35,9 +35,8 @@ class AnswerTrueOrFalse extends Component {
         }
     }
 
-    setAnswerStatTrue(marked, answer)
-    {
-        if(marked) {
+    setAnswerStatTrue(marked, answer) {
+        if (marked) {
             this.props.handleAnswerStat(
                 answer.valid ? 1 : 0,
                 answer.valid ? 0 : 1
@@ -51,9 +50,8 @@ class AnswerTrueOrFalse extends Component {
         }
     }
 
-    setAnswerStatFalse(marked, answer)
-    {
-        if(marked) {
+    setAnswerStatFalse(marked, answer) {
+        if (marked) {
             this.props.handleAnswerStat(
                 !answer.valid ? 1 : 0,
                 !answer.valid ? 0 : 1
@@ -71,18 +69,21 @@ class AnswerTrueOrFalse extends Component {
         const buttonClassTrue = setButtonClass(answer.valid, validated, markedTrue);
         const buttonClassFalse = setButtonClass(!answer.valid, validated, markedFalse)
         return (
-            <div className='col-sx-2 v-center'>
+            <React.Fragment>
                 <Button className='answer-button' color={buttonClassTrue} onClick={this.handleOnClickTrue}>I</Button>
                 <Button className='answer-button' color={buttonClassFalse} onClick={this.handleOnClickFalse}>H</Button>
-            </div>)
+            </React.Fragment>
+        )
     }
 
     render() {
 
         return (
             <div className='question-answer row'>
-                {this.createInputForAnswer(this.props.answer, this.props.validated, this.state.markedTrue, this.state.markedFalse)}
-                <div className='col-sm-10 font-14 v-center pl-0'><span>{this.props.answer.name}</span></div>
+                <div className='v-center'>
+                    {this.createInputForAnswer(this.props.answer, this.props.validated, this.state.markedTrue, this.state.markedFalse)}
+                    <span className='font-14'>{this.props.answer.name}</span>
+                </div>
             </div>
         );
     }
