@@ -23,6 +23,10 @@ class Questions extends Component {
         };
     }
 
+    componentDidMount() {
+        window.scrollTo(0, 0);
+    }
+
     setClockStart(questionIds) {
         const clockStart = [];
         questionIds.map((id, index) => {
@@ -59,6 +63,7 @@ class Questions extends Component {
                 clockStart: currentClockStart
             });
         }
+        window.scrollTo(0, 0);
     }
 
     changeAnswerStat(correct, wrong) {

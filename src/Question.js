@@ -12,7 +12,7 @@ class Question extends Component {
         this.state = {
             countDownEnd: false,
             validated: false,
-            answers: shuffle(this.props.question.answers),
+            answers: this.props.question.type != 2 ? shuffle(this.props.question.answers) : this.props.question.answers,
             clockPaused: false
         }
         this.handleValidation = this.handleValidation.bind(this);
