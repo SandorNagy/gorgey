@@ -36,9 +36,9 @@ class AnswerMultiple extends Component {
         if (!answer.valid.indexOf(oldValue) > -1 && answer.valid.indexOf(newValue) > -1) {
             this.props.handleAnswerStat(1, -1);
         }
-        else if(answer.valid.indexOf(oldValue) > -1 && !answer.valid.indexOf(newValue) > -1) {
+        else if (answer.valid.indexOf(oldValue) > -1 && !answer.valid.indexOf(newValue) > -1) {
             this.props.handleAnswerStat(-1, 1);
-        } else if(this.state.value === '' && !answer.valid.indexOf(newValue) > -1) {
+        } else if (this.state.value === '' && !answer.valid.indexOf(newValue) > -1) {
             this.props.handleAnswerStat(0, 1);
         }
     }
@@ -48,13 +48,15 @@ class AnswerMultiple extends Component {
             const correct = answer.valid.indexOf(this.state.value) > -1;
             return {
                 class: correct ? 'is-valid form-control' : 'is-invalid form-control',
-                value: correct ? this.state.value : answer.valid[0]
+                value: correct ? this.state.value : answer.valid[0],
+                disabled: 'disabled'
             }
         }
         else {
             return {
                 class: 'form-control',
-                value: this.state.value
+                value: this.state.value,
+                disabled: ''
             }
         }
     }
@@ -68,7 +70,7 @@ class AnswerMultiple extends Component {
                     {splittedName[0]}
                 </label>
                 <div className='inline-block mr-1'>
-                    <input type='text' className={inputSetting.class} value={inputSetting.value} onChange={this.answerInputOnChange} />
+                    <input {...inputSetting.disabled} type='text' className={inputSetting.class} value={inputSetting.value} onChange={this.answerInputOnChange} />
                 </div>
                 <label>
                     {splittedName[1]}

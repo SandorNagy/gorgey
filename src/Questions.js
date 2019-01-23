@@ -18,8 +18,18 @@ class Questions extends Component {
             answeredQuestions: 0,
             correctAnswer: 0,
             wrongAnswer: 0,
-            maxPoints: this.getMaxPoints(getQuestionIdsByTopicId(this.props.match.params.topicid))
+            maxPoints: this.getMaxPoints(getQuestionIdsByTopicId(this.props.match.params.topicid)),
+            clockStart: this.setClockStart(getQuestionIdsByTopicId(this.props.match.params.topicid))
         };
+    }
+
+    setClockStart(questionIds) {
+        const clockStart = [];
+        questionIds.map((id, index) => {
+            index === 0 ? clockStart[index] = true : clockStart[index] = false;
+            return null;
+        });
+        return clockStart;
     }
 
     getMaxPoints(questionIds) {
@@ -42,8 +52,11 @@ class Questions extends Component {
     changeToggle(tab) {
         if (this.state.activeTab !== tab &&
             this.state.answeredQuestions >= tab) {
+            const currentClockStart = this.state.clockStart;
+            currentClockStart[tab] = true;
             this.setState({
-                activeTab: tab
+                activeTab: tab,
+                clockStart: currentClockStart
             });
         }
     }
@@ -154,7 +167,8 @@ class Questions extends Component {
                                 handleAnswerStat={this.changeAnswerStat}
                                 handleToggle={this.changeToggle}
                                 activeTab={this.state.activeTab}
-                                questionsLength={this.state.questionIds.length} />
+                                questionsLength={this.state.questionIds.length}
+                                clockStart={this.state.clockStart[index]} />
                         </Col>
                     </Row>
                 </TabPane>
@@ -178,13 +192,13 @@ class Questions extends Component {
             <TabPane tabId={(questionIds.length).toString()}>
                 <Row>
                     <Col sm="12" className='question-content'>
-                        <div className='text-center'>
+                        <div className='text-center mr-4'>
                             <p>Gratulálok, teljesítetted a feladatsort!</p>
                             <img width='150' className='mb-3' src={require('./images/award.png')} alt="" />
                         </div>
                         <div>
-                            <Progress className='summary-progress' color="warning" value={100} >{this.state.maxPoints} </Progress>
-                            <Progress className='summary-progress' color="success" value={(this.state.correctAnswer / this.state.maxPoints) * 100} >{this.state.correctAnswer} </Progress>
+                            <Progress className='summary-progress' color="warning" value={100} >{this.state.maxPoints}</Progress>
+                            <Progress className='summary-progress' color="success" value={(this.state.correctAnswer / this.state.maxPoints) * 100} >{this.state.correctAnswer}</Progress>
                             <Progress className='summary-progress' color="info" value={((this.state.maxPoints - (this.state.correctAnswer + this.state.wrongAnswer)) / this.state.maxPoints) * 100} >{this.state.maxPoints - (this.state.correctAnswer + this.state.wrongAnswer)}</Progress>
                             <Progress className='summary-progress' color="danger" value={(this.state.wrongAnswer / this.state.maxPoints) * 100} >{this.state.wrongAnswer}</Progress>
                         </div>
