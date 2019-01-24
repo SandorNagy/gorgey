@@ -13,6 +13,7 @@ class Questions extends Component {
         this.changeToggle = this.changeToggle.bind(this);
         this.incraseAnsweredQuestions = this.incraseAnsweredQuestions.bind(this);
         this.changeAnswerStat = this.changeAnswerStat.bind(this);
+        this.handleOnSolveAgain = this.handleOnSolveAgain.bind(this);
         this.state = {
             activeTab: 0,
             questionIds: shuffle(getQuestionIdsByTopicId(this.props.match.params.topicid)),
@@ -27,6 +28,10 @@ class Questions extends Component {
 
     componentDidMount() {
         window.scrollTo(0, 0);
+    }
+
+    handleOnSolveAgain() {
+        window.location.reload();
     }
 
     setClockStart(questionIds) {
@@ -210,6 +215,9 @@ class Questions extends Component {
                             <Progress className='summary-progress' color="success" value={(this.state.correctAnswer / this.state.maxPoints) * 100} >{this.state.correctAnswer}</Progress>
                             <Progress className='summary-progress' color="info" value={((this.state.maxPoints - (this.state.correctAnswer + this.state.wrongAnswer)) / this.state.maxPoints) * 100} >{this.state.maxPoints - (this.state.correctAnswer + this.state.wrongAnswer)}</Progress>
                             <Progress className='summary-progress' color="danger" value={(this.state.wrongAnswer / this.state.maxPoints) * 100} >{this.state.wrongAnswer}</Progress>
+                        </div>
+                        <div className='solve-again'>
+                            <Button color="primary" onClick={this.handleOnSolveAgain}>Újra megoldom</Button>
                         </div>
                     </Col>
                 </Row>
