@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button } from 'reactstrap';
+import { Button, Input } from 'reactstrap';
 
 class AnswerMultiple extends Component {
     constructor(props) {
@@ -47,14 +47,14 @@ class AnswerMultiple extends Component {
             return {
                 class: correct ? 'is-valid form-control' : 'is-invalid form-control',
                 value: correct ? this.state.value : answer.valid[0],
-                disabled: 'disabled'
+                disabled: true
             }
         }
         else {
             return {
                 class: 'form-control',
                 value: this.state.value,
-                disabled: ''
+                disabled: false
             }
         }
     }
@@ -68,7 +68,7 @@ class AnswerMultiple extends Component {
                     {splittedName[0]}
                 </label>
                 <div className='inline-block mr-1'>
-                    <input {...inputSetting.disabled} type='text' className={inputSetting.class} value={inputSetting.value} onChange={this.answerInputOnChange} />
+                    <Input disabled={inputSetting.disabled} bsSize="sm" type='text' className={inputSetting.class} value={inputSetting.value} onChange={this.answerInputOnChange} />
                 </div>
                 <label className='font-14'>
                     {splittedName[1]}

@@ -12,7 +12,7 @@ class Question extends Component {
         this.state = {
             countDownEnd: false,
             validated: false,
-            answers: this.props.question.type != 2 ? shuffle(this.props.question.answers) : this.props.question.answers,
+            answers: this.props.question.shuffle ? shuffle(this.props.question.answers) : this.props.question.answers,
             clockPaused: false
         }
         this.handleValidation = this.handleValidation.bind(this);
@@ -80,7 +80,7 @@ class Question extends Component {
                     </div>
                     <div className='countdown col-sm-2'>
                         {this.props.clockStart ?
-                            <ReactCountdownClock seconds={60}
+                            <ReactCountdownClock seconds={this.props.question.time}
                                 color={this.state.countDownEnd ? '#dc3545' : '#0069d9'}
                                 alpha={0.9}
                                 size={45}
