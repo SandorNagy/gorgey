@@ -311,3 +311,9 @@ a.active {
   font-weight: 600;
   font-size: 20px;
 }
+
+.solve-again {
+  text-align: center;
+  margin-top: 25px;
+  margin-right: 18px;
+}
