@@ -165,7 +165,7 @@ header {
 .answer-button {
   width: 35px;
   height: 35px;
-  margin-right: 5px;
+  margin-right: 10px;
 }
 
 .menu-link {
@@ -233,7 +233,8 @@ header {
 }
 
 .question-answer {
-  margin-bottom: 10px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .font-14 {
@@ -254,10 +255,10 @@ header {
 }
 
 .section-questions {
-  padding-top: 90px;
+  padding-top: 120px;
   padding-bottom: 90px;
   background-color:#E0E0E0;
-  min-height: 600px;
+  min-height: 1080px;
   color: #333 !important;
 }
 
@@ -293,4 +294,20 @@ a.active {
 .summary-progress {
   margin-right: 30px;
   margin-bottom: 10px;
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.form-control-sm {
+  width: 125px !important;
+}
+ 
+.topic-title {
+  text-align: center;
+  font-weight: 600;
+  font-size: 20px;
 }

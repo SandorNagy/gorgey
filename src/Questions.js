@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { getQuestionIdsByTopicId, getQuestionById } from "./data/questions";
+import { getTopicByTopicId } from './data/topics';
 import Question from './Question';
 import { shuffle } from './Utils';
 import { TabContent, TabPane, Nav, NavItem, NavLink, Row, Col, Progress, Button } from 'reactstrap';
@@ -19,7 +20,8 @@ class Questions extends Component {
             correctAnswer: 0,
             wrongAnswer: 0,
             maxPoints: this.getMaxPoints(getQuestionIdsByTopicId(this.props.match.params.topicid)),
-            clockStart: this.setClockStart(getQuestionIdsByTopicId(this.props.match.params.topicid))
+            clockStart: this.setClockStart(getQuestionIdsByTopicId(this.props.match.params.topicid)),
+            topic: getTopicByTopicId(this.props.match.params.topicid)
         };
     }
 
@@ -204,7 +206,7 @@ class Questions extends Component {
                             <img width='150' className='mb-3' src={require('./images/award.png')} alt="" />
                         </div>
                         <div>
-                            <Progress className='summary-progress' color="warning" value={100} >{this.state.maxPoints}</Progress>
+                            {/* <Progress className='summary-progress' color="warning" value={100} >{this.state.maxPoints}</Progress> */}
                             <Progress className='summary-progress' color="success" value={(this.state.correctAnswer / this.state.maxPoints) * 100} >{this.state.correctAnswer}</Progress>
                             <Progress className='summary-progress' color="info" value={((this.state.maxPoints - (this.state.correctAnswer + this.state.wrongAnswer)) / this.state.maxPoints) * 100} >{this.state.maxPoints - (this.state.correctAnswer + this.state.wrongAnswer)}</Progress>
                             <Progress className='summary-progress' color="danger" value={(this.state.wrongAnswer / this.state.maxPoints) * 100} >{this.state.wrongAnswer}</Progress>
@@ -223,19 +225,24 @@ class Questions extends Component {
     render() {
         const tabs = this.createQuestionTabs(this.state.questionIds);
         return (
-            <section className='section-questions'>
-                <div className='container'>
-                    <div className='questions-tab offset-md-1 col-md-10'>
-                        <Progress className='mb-3' animated color="warning" value={(this.state.answeredQuestions / this.state.questionIds.length) * 100}>{((this.state.answeredQuestions / this.state.questionIds.length) * 100).toFixed(2)}%</Progress>
-                        <Nav tabs>
-                            {tabs.links}
-                        </Nav>
-                        <TabContent activeTab={this.state.activeTab.toString()}>
-                            {tabs.questions}
-                        </TabContent>
+            <React.Fragment>
+                <section className='section-questions'>
+                    <div className='container'>
+                        <div className='questions-tab offset-md-1 col-md-10'>
+                            <div className='topic-title mb-3'>
+                                {this.state.topic.length >= 1 ? this.state.topic[0].title : null}
+                            </div>
+                            <Progress className='mb-3' animated color="warning" value={(this.state.answeredQuestions / this.state.questionIds.length) * 100}>{((this.state.answeredQuestions / this.state.questionIds.length) * 100).toFixed(2)}%</Progress>
+                            <Nav tabs>
+                                {tabs.links}
+                            </Nav>
+                            <TabContent activeTab={this.state.activeTab.toString()}>
+                                {tabs.questions}
+                            </TabContent>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            </React.Fragment>
         );
     }
 }

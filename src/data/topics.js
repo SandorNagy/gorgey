@@ -63,7 +63,9 @@ const topics = [
 ];
 
 const getAllTopics = () => topics;
-
+const getTopicByTopicId = topicId =>
+    topics.filter(element => element.id === topicId);
 export {
-  getAllTopics
+  getAllTopics,
+  getTopicByTopicId
 };

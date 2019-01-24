@@ -118,6 +118,8 @@ const questions = {
     '1e959be0-0838-483c-ad35-37d8f34b097a': {
         name: 'Az alábbi személy NEM köthető közvetlenül egyik valláshoz sem.',
         type: 0,
+        time: 45,
+        shuffle: true,
         answers: [
             {
                 name: 'Jézus',
@@ -141,6 +143,8 @@ const questions = {
     '2e959be0-0838-483c-ad35-37d8f34b097a': {
         name: 'Az ő nevéhez fűződik az athéni demokrácia fénykora.',
         type: 0,
+        time: 45,
+        shuffle: true,
         answers: [
             {
                 name: 'Periklész',
@@ -164,6 +168,8 @@ const questions = {
     '3e959be0-0838-483c-ad35-37d8f34b097a': {
         name: 'A görög mitológiában a háború istene.',
         type: 0,
+        time: 45,
+        shuffle: true,
         answers: [
             {
                 name: 'Mars',
@@ -187,6 +193,8 @@ const questions = {
     '4e959be0-0838-483c-ad35-37d8f34b097a': {
         name: 'A görög mitológiában a szerelem istennője.',
         type: 0,
+        time: 45,
+        shuffle: true,
         answers: [
             {
                 name: 'Artemisz',
@@ -210,6 +218,8 @@ const questions = {
     '5e959be0-0838-483c-ad35-37d8f34b097a': {
         name: 'Az első triumvirátus tagja, később Róma dictartora.',
         type: 0,
+        time: 45,
+        shuffle: true,
         answers: [
             {
                 name: 'Caesar',
@@ -233,6 +243,8 @@ const questions = {
     '6e959be0-0838-483c-ad35-37d8f34b097a': {
         name: 'Az első császár az ókori Rómában.',
         type: 0,
+        time: 45,
+        shuffle: true,
         answers: [
             {
                 name: 'Caesar',
@@ -256,9 +268,11 @@ const questions = {
     '7e959be0-0838-483c-ad35-37d8f34b0971': {
         name: 'Egészítsd ki a szöveget ismereteid alapján! (Egy helyre csak egy szót írhatsz be.)',
         type: 2,
+        time: 210,
+        shuffle: false,
         answers: [
             {
-                name: 'Az athéni demokrácia fénykora a | században volt.',
+                name: 'Az athéni demokrácia fénykora a(z) | században volt.',
                 valid: [
                     '5.',
                     'V.',
@@ -266,13 +280,13 @@ const questions = {
                 ]
             },
             {
-                name: 'A legfontosabb szerve a | volt, ',
+                name: 'A legfontosabb szerve a | volt, ...',
                 valid: [
                     'népgyűlés'
                 ]
             },
             {
-                name: 'aminek minden 20 évnél idősebb athéni születési | tagja volt.',
+                name: '... aminek minden 20 évnél idősebb athéni születési | tagja volt.',
                 valid: [
                     'férfi'
                 ]
@@ -306,6 +320,8 @@ const questions = {
     '8e959be0-0838-483c-ad35-37d8f34b0971': {
         name: 'Írd be az adott vallás kezdőbetűjét az állítás utáni négyzetbe! Zsidó = ZS; Keresztény = K; Iszlám = I.',
         type: 2,
+        time: 210,
+        shuffle: true,
         answers: [
             {
                 name: 'Mohamed alapította. |',
