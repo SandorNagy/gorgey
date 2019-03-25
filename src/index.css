@@ -42,7 +42,7 @@ header {
 /* HOME */
 
 .section-home {
-    height: 600px;
+    height: 630px;
     background-color: #f1f1f1;
     text-align: center;
     color: #333 !important;
@@ -81,7 +81,6 @@ header {
 }
 
 .section-heading {
-  padding-top: 39px;
   margin-bottom: 20px;
 }
 
@@ -91,6 +90,10 @@ header {
 
 .mb-50 {
   margin-bottom: 50px;
+}
+
+.mt-40 {
+  margin-top: 40px;
 }
 
 /* FOOTER */
@@ -113,6 +116,11 @@ header {
 @media (max-width: 991px) {
   .thumb img {
     width: 150px;
+  }
+
+  .section-image {
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 }
 

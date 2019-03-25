@@ -107,7 +107,7 @@ class Home extends Component {
                     <div className={'container text-center' + this.setHomeLoadingClass(this.state.loaded)}>
                         <img src={require('./images/gorgey.png')} alt="Görgey Artúr" />
                         <h1 className="heading">Üdvözöllek a Görgey Artúr Akadémián!</h1>
-                        <div className="subheading">This is some text inside of a div block.</div>
+                        <div className="subheading"><i>Segítünk eligazodni a történelem (érettségi) szövevényes világában.</i></div>
                     </div>
                     <div id="mybutton" onClick={this.handleScrollDirection}>
                         <span className={'scroll-button' + (this.state.scrollDirection ? ' up' : ' down')}></span>
@@ -116,11 +116,13 @@ class Home extends Component {
                 <section className='section-white-left' ref={this.forusRef}>
                     <div className='container'>
                         <div className='row'>
-                            <div class='offset-md-1 col-md-5'>
+                            <div class='offset-lg-1 col-lg-5'>
                                 <h2 className="section-heading">Kik is vagyunk?</h2>
-                                <div className="section-subheading">Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec ullamcorper nulla non metus auctor fringilla.</div>
+                                <div className="section-subheading">
+                                    Egy modern szellemiségű akadémia, amely gyakorlatorientált képzésével, segít elsajátítani a problémamegoldó és kritikai gondolkodást: mindezt játékos feladatok alkalmazásával, hogy egy percre se unatkozz.
+                                </div>
                             </div>
-                            <div className='col-md-5 text-center'>
+                            <div className='col-lg-5 text-center'>
                                 <img className='section-image' src={require('./images/bridge.jpeg')} alt="" />
                             </div>
                         </div>
@@ -129,17 +131,46 @@ class Home extends Component {
                 <section className='section-grey-right' ref={this.referencesRef}>
                     <div className='container'>
                         <div className='row'>
-                            <div className='offset-md-1 col-md-5 text-center'>
+                            <div className='offset-lg-1 col-lg-5 text-center'>
                                 <img className='section-image' src={require('./images/bridge.jpeg')} alt="" />
                             </div>
-                            <div className='col-md-5'>
-                                <h2 className="section-heading">Referenciák</h2>
-                                <div className="section-subheading">Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec ullamcorper nulla non metus auctor fringilla.</div>
+                            <div className='col-lg-5'>
+                                <div className="section-subheading">
+                                    <i>„A történelmet végre jó volt tanulni, sok érdekességet néztünk, és sok dolgot megértettem olyan dolgokból is, amit már tanultam a suliban magolással. Teljesen tisztába van az érettségi követelményekkel, amik a legfontosabbak. Továbbá, megtanít gondolkodni, saját véleményt formálni. Örülök, hogy tudtam fejlődni melletted, annak, hogy sok hibámra rávilágított és használható tanáccsal látott el az élet több területén. Ha minden embert Kocsis Ádi tanítana, nem itt tartanánk.” <b>Bianka</b></i>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </section>
-                <section className="text-center" ref={this.tasksRef}>
+                <section className='section-white-left'>
+                    <div className='container'>
+                        <div className='row'>
+                            <div class='offset-lg-1 col-lg-5'>
+                                <div className="section-subheading">
+                                    <i>„Ami külön jó volt az órákban, hogy szinte szórakozva vettük át az anyagot, nem volt különösebben fárasztó végigrágni a témákat, és minden kérdésre kaptunk választ, gyakran ha nem is egyből, akkor utána jártál, és a következő órán sor került rá.” Ha van olyan képzés, amire az ember rászánhatja a szabadidejét, hogy hasznosan töltse, akkor ez az a képzés.”</i> <b>Patrik</b>
+                                </div>
+                            </div>
+                            <div className='col-lg-5 text-center'>
+                                <img className='section-image' src={require('./images/bridge.jpeg')} alt="" />
+                            </div>
+                        </div>
+                    </div>
+                </section >
+                <section className='section-grey-right'>
+                    <div className='container'>
+                        <div className='row'>
+                            <div className='offset-lg-1 col-lg-5 text-center'>
+                                <img className='section-image' src={require('./images/bridge.jpeg')} alt="" />
+                            </div>
+                            <div className='col-lg-5'>
+                                <div className="section-subheading">
+                                    <i>„Ami külön jó volt az órákban az, hogy felvetted a diák tanulási stílusát, úgy el tudtál magyarázni nehezen érthető anyagokat úgy, hogy az érthető és könnyen megjegyezhető legyen. Az is nagyon tetszett, hogy ösztönöztél a tanulásra, mindig szóvá tetted, ha nem voltam kellően felkészülve. Ezen felül nagyon tetszett még, hogy tartottál összevont órákat az ezzel elősegítve a felkészültségünket. Személyes véleményem szerint az eddigi legjobb történelem tanár, akivel találkoztam.”</i> <b>Fanni</b>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section className="text-center mt-40" ref={this.tasksRef}>
                     <div className="container">
                         <div className="section-title-group">
                             <h2 className="centered section-heading">Gyakorlófeladatok a középszintű történelem érettségire</h2>
@@ -148,7 +179,7 @@ class Home extends Component {
                         <Topics />
                     </div>
                 </section>
-            </React.Fragment>
+            </React.Fragment >
         );
     }
 }
