@@ -170,8 +170,8 @@ class Home extends Component {
                         </div>
                     </div>
                 </section>
-                <section className="text-center mt-40" ref={this.tasksRef}>
-                    <div className="container">
+                <section className="text-center" ref={this.tasksRef}>
+                    <div className="container pt-50">
                         <div className="section-title-group">
                             <h2 className="centered section-heading">Gyakorlófeladatok a középszintű történelem érettségire</h2>
                             <div className="center section-subheading">This is some text inside of a div block.</div>
